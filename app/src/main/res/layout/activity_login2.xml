@@ -38,15 +38,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/login_phone_input"
-        android:background="@drawable/input_design"
-        android:padding="15dp"
-        android:layout_marginRight="25dp"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/input_design"
         android:hint="Пароль"
         android:inputType="textPassword"
-        android:textColorHint="@color/cardview_light_background"
+        android:padding="15dp"
         android:textColor="@color/cardview_light_background"
+        android:textColorHint="@color/cardview_light_background"
         android:textSize="18dp"
         android:textStyle="bold" />
 
@@ -92,16 +92,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linear_check"
-        android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/button"
         android:padding="15dp"
         android:text="Войти"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/admin_panel_link"

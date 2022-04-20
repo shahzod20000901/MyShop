@@ -61,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Введите номер", Toast.LENGTH_SHORT).show();
         }
-        if(TextUtils.isEmpty(password))
+        else if(TextUtils.isEmpty(password))
         {
             Toast.makeText(this, "Введите пароль", Toast.LENGTH_SHORT).show();
         }
