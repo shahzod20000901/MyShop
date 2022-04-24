@@ -1,4 +1,4 @@
-package com.example.myshop;
+package com.example.myshop.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.myshop.R;
+import com.example.myshop.ui.Users.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -24,7 +26,7 @@ import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private Button registrBtn;
+    private Button registrBtn, backMain;
     private EditText usernameInput, phoneInput, passwordInput;
     private ProgressDialog loadingBar;
 
@@ -34,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         registrBtn=(Button)findViewById(R.id.register_btn);
+        backMain=(Button)findViewById(R.id.back);
         usernameInput=(EditText) findViewById(R.id.register_username_input);
         phoneInput=(EditText) findViewById(R.id.register_phone_input);
         passwordInput=(EditText) findViewById(R.id.register_password_input);
@@ -43,6 +46,14 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 CreateAccount();
+            }
+        });
+
+        backMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent backIntent=new Intent(RegisterActivity.this, MainActivity.class);
+                startActivity(backIntent);
             }
         });
 
@@ -77,7 +88,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    private void ValidatePhone(String username, String phone, String password) {
+    private void ValidatePhone(final String username, final String phone, final String password) {
         final DatabaseReference RootRef;
         RootRef= FirebaseDatabase.getInstance().getReference();
 
