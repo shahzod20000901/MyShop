@@ -5,14 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.myshop.R;
-import com.rey.material.widget.ImageView;
+
 
 public class AdminCategoryActivity extends AppCompatActivity {
 
-    private ImageView car, watch, book, sports, hats;
-    private ImageView glasses, headphones, laptops, bags, shoes;
+    public ImageView car, watch, book, sports, hats;
+    public ImageView glasses, headphones, laptops, bags, shoes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

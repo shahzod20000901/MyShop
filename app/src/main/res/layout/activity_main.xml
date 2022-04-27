@@ -36,7 +36,7 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/button"
         android:padding="15dp"
-        android:text="Уже естть аккауунт? Войти"
+        android:text="Уже есть аккаунт? Войти"
         android:textAllCaps="false"
         android:textColor="@color/cardview_light_background"
         android:textSize="20sp"/>

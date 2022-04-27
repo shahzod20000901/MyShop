@@ -11,4 +11,13 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Theme.MyShop.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MyShop.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MyShop.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

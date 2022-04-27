@@ -10,13 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyShop">
         <activity
+            android:name=".ui.Users.HomeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_home"
+            android:theme="@style/Theme.MyShop.NoActionBar" />
+        <activity
+            android:name=".ui.Users.SettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.Users.AdminCategoryActivity"
             android:exported="false" />
         <activity
             android:name=".ui.Users.AdminAddNewProductActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.Users.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".ui.RegisterActivity"

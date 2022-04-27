@@ -13,12 +13,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
+import android.widget.Toast;
 import com.example.myshop.R;
-import com.example.myshop.ui.LoginActivity;
-import com.example.myshop.ui.RegisterActivity;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -29,7 +26,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -190,10 +186,10 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
     }
 
     private void OpenGallery() {
-        Intent galleyIntent= new Intent();
-        galleyIntent.setAction(Intent.ACTION_GET_CONTENT);
-        galleyIntent.setType("image/*");
-        startActivityForResult(galleyIntent, GALLERYPICK);
+        Intent galleryIntent= new Intent();
+        galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+        galleryIntent.setType("image/*");
+        startActivityForResult(galleryIntent, GALLERYPICK);
     }
 
     @Override
