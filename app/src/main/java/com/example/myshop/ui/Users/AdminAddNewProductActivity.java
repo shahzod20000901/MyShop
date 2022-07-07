@@ -102,7 +102,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
 
         Calendar calendar=Calendar.getInstance();
 
-        SimpleDateFormat currentDate = new SimpleDateFormat("dd.MM.yyyy");
+        SimpleDateFormat currentDate = new SimpleDateFormat("dd/MM/yyyy");
         saveCurrentDate=currentDate.format(calendar.getTime());
 
         SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss");
@@ -157,11 +157,11 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
         productMap.put("pid", productRandomKey);
         productMap.put("date", saveCurrentDate);
         productMap.put("time", saveCurrntTime);
-        productMap.put("description", productDescription);
+        productMap.put("description", productDescription.getText().toString());
         productMap.put("image", downloadImageUrl);
         productMap.put("category", categoryName);
-        productMap.put("price", productPrice);
-        productMap.put("pname", productName);
+        productMap.put("price", productPrice.getText().toString());
+        productMap.put("pname", productName.getText().toString());
 
         Productsref.child(productRandomKey).updateChildren(productMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

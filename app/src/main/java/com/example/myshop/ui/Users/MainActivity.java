@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         {
             if(TextUtils.isEmpty(UserPhoneKey) && TextUtils.isEmpty(UserPasswordKey))
             {
-                ValidateUser(UserPhoneKey, UserPasswordKey);
+                //ValidateUser(UserPhoneKey, UserPasswordKey);
                 loadingBar.setTitle("Вход в приложение ...");
                 loadingBar.setMessage("Пожалуйста подаждите....");
                 loadingBar.setCanceledOnTouchOutside(false);
@@ -75,47 +75,54 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     private void ValidateUser(final String phone, final String password) {
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
 
-        RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.child("Users").child("phone").exists())
-                {
-                    Users userData = snapshot.child("Users").child("phone").getValue(Users.class);
 
-                    assert userData != null;
-                    if (!userData.getPhone().equals("phone")) {
-                        return;
-                    }
-                    if(userData.getPassword().equals("password"))
+            RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if(snapshot.child("Users").child(phone).exists())
                     {
-                        loadingBar.dismiss();
-                        Toast.makeText(MainActivity.this, "Успешный вход!", Toast.LENGTH_SHORT).show();
+                        Users userData = snapshot.child("Users").child(phone).getValue(Users.class);
 
-                        Intent homeIntent=new Intent(MainActivity.this, HomeActivity.class);
-                        startActivity(homeIntent);
+                        assert userData != null;
+                        if (!userData.getPhone().equals(phone)) {
+                            return;
+                        }
+                        if(userData.getPassword().equals(password))
+                        {
+                            loadingBar.dismiss();
+                            Toast.makeText(MainActivity.this, "Успешный вход!", Toast.LENGTH_SHORT).show();
+
+                            Intent homeIntent=new Intent(MainActivity.this, HomeActivity.class);
+                            startActivity(homeIntent);
+                        }
+                        else
+                        {
+                            loadingBar.dismiss();
+                        }
                     }
                     else
                     {
-                        loadingBar.dismiss();
+                        Toast.makeText(MainActivity.this, "Аккаунт с номером " + "phone" + " не существует!!!", Toast.LENGTH_SHORT).show();
+
+                        Intent registerIntent=new Intent(MainActivity.this, RegisterActivity.class);
+                        startActivity(registerIntent);
                     }
                 }
-                else
-                {
-                    Toast.makeText(MainActivity.this, "Аккаунт с номером " + "phone" + " не существует!!!", Toast.LENGTH_SHORT).show();
 
-                    Intent registerIntent=new Intent(MainActivity.this, RegisterActivity.class);
-                    startActivity(registerIntent);
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
                 }
-            }
+            });
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
+
+
     }
 }

@@ -2,15 +2,18 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         google()
-        mavenCentral()
+       mavenCentral()
     }
 }
 dependencyResolutionManagement {
    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
-        mavenCentral()
+       mavenCentral()
     }
 }
 rootProject.name = "MyShop"
 include ':app'
+include 'cropper'
+include 'sample'
+include 'quick-start'
